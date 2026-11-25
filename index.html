@@ -196,8 +196,14 @@ form{background:#fff;color:#16131f;border-radius:26px;padding:clamp(20px,3vw,32p
 label{font-weight:700;font-size:15px;display:grid;gap:6px}
 input,select,textarea{font:16px "Plus Jakarta Sans",sans-serif;padding:12px 14px;border-radius:12px;border:1.5px solid #d9d5ea;background:#fbfaff;color:#16131f;width:100%}
 textarea{min-height:110px;resize:vertical}
-.out2{display:none;background:#f2eeff;border-radius:14px;padding:14px;font-size:15px;white-space:pre-wrap}
-.out2.show{display:block}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.opt{font-weight:500;color:#6d6987;font-size:14px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.fmsg{margin:0;font-size:15px;font-weight:600;min-height:1.4em}
+.fmsg.ok{color:#0f7a55}
+.fmsg.err{color:#c2185b}
+#send[disabled]{opacity:.6;cursor:wait}
+@media(max-width:600px){.two{grid-template-columns:minmax(0,1fr)}}
 .reach{display:grid;gap:10px;margin-top:26px}
 .reach div{display:flex;gap:12px;align-items:center;font-weight:600;flex-wrap:wrap}
 .reach span{font-size:14px;color:rgba(255,255,255,.75);min-width:84px}
@@ -361,13 +367,19 @@ footer a{text-decoration:none}
         <div><span>Studio</span>Baramulla, J&amp;K</div>
       </div>
     </div>
-    <form id="form">
-      <label for="fn">Your name<input id="fn" name="fn" required autocomplete="name" placeholder="Name"></label>
-      <label for="fb">Type of business<select id="fb" name="fb"><option>Masjid or committee</option><option>Boutique or tailoring</option><option>Study library</option><option>School or preschool</option><option>Chit fund</option><option>Something else</option></select></label>
-      <label for="fm">What should the app handle?<textarea id="fm" name="fm" required placeholder="e.g. We take 40 orders a week and lose track of measurements"></textarea></label>
-      <button class="btn solid" type="submit">Prepare my message</button>
-      <div class="out2" id="out2"></div>
-      <button class="btn ghost" type="button" id="copy" hidden>Copy message</button>
+    <form id="form" novalidate>
+      <div class="two">
+        <label for="fn">Your name<input id="fn" name="name" required autocomplete="name" placeholder="Name"></label>
+        <label for="fe">Email<input id="fe" name="email" type="email" required autocomplete="email" placeholder="you@example.com"></label>
+      </div>
+      <div class="two">
+        <label for="fp">Phone or WhatsApp <span class="opt">optional</span><input id="fp" name="phone" type="tel" autocomplete="tel" placeholder="+91"></label>
+        <label for="fb">Type of business<select id="fb" name="business"><option>Masjid or committee</option><option>Boutique or tailoring</option><option>Study library</option><option>School or preschool</option><option>Chit fund</option><option>Something else</option></select></label>
+      </div>
+      <label for="fm">What should the app handle?<textarea id="fm" name="message" required placeholder="e.g. We take 40 orders a week and lose track of measurements"></textarea></label>
+      <input type="text" name="_honey" id="fh" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
+      <button class="btn solid" type="submit" id="send">Send message</button>
+      <p class="fmsg" id="fmsg" role="status" aria-live="polite"></p>
     </form>
   </div>
 </section>
@@ -513,11 +525,21 @@ route.addEventListener('click',e=>{const b=e.target.closest('.st');if(b){clearIn
 showStep(0);
 if(!RM)stT=setInterval(()=>showStep((si+1)%ST.length),5000);
 
-/* contact */
-const form=$('form'),out=$('out2'),copy=$('copy');
-let msg='';
-form.addEventListener('submit',e=>{e.preventDefault();msg=`To: hello@sbnapps.com\nFrom: ${$('fn').value.trim()}\nBusiness: ${$('fb').value}\n\n${$('fm').value.trim()}`;out.textContent=msg+'\n\nCopy this and send it to hello@sbnapps.com.';out.classList.add('show');copy.hidden=false});
-copy.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(msg);copy.textContent='Copied'}catch(err){copy.textContent='Select the text above to copy'}});
+/* contact: posts to FormSubmit, which emails hello@sbnapps.com */
+const form=$('form'),fmsg=$('fmsg'),send=$('send');
+const say=(t,c)=>{fmsg.textContent=t;fmsg.className='fmsg '+(c||'')};
+form.addEventListener('submit',async e=>{e.preventDefault();
+ if($('fh').value)return;
+ const name=$('fn').value.trim(),email=$('fe').value.trim(),message=$('fm').value.trim();
+ if(!name||!message||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){say('Please add your name, a valid email and a short message.','err');return}
+ send.disabled=true;send.textContent='Sending…';say('');
+ try{const r=await fetch('https://formsubmit.co/ajax/hello@sbnapps.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+   body:JSON.stringify({name,email,phone:$('fp').value.trim(),business:$('fb').value,message,_subject:'New enquiry from sbnapps.com: '+$('fb').value,_template:'table',_captcha:'false'})});
+  const j=await r.json().catch(()=>({}));
+  if(!r.ok||String(j.success)==='false')throw new Error(j.message||'failed');
+  form.reset();say('Thank you. Your message is in our inbox and we\'ll reply within a day.','ok')}
+ catch(err){say('Sorry, that didn\'t send. Please email hello@sbnapps.com directly.','err')}
+ finally{send.disabled=false;send.textContent='Send message'}});
 }
 </script>
 </body>
