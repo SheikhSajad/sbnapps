@@ -31,7 +31,7 @@ p{margin:0}
 .band{padding-block:clamp(40px,6vw,88px);padding-inline:max(5vw,16px)}
 .wrap{max-width:1240px;margin-inline:auto}
 .mute{color:var(--mute)}
-.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 22px;border-radius:14px;font:700 16px/1 inherit;font-family:inherit;text-decoration:none;border:2px solid var(--p);cursor:pointer;transition:transform .15s,background .15s}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 22px;border-radius:14px;font-weight:700;font-size:16px;line-height:1;font-family:inherit;justify-content:center;text-decoration:none;border:2px solid var(--p);cursor:pointer;transition:transform .15s,background .15s}
 .btn.solid{background:var(--p);color:#fff}
 .btn.ghost{background:transparent;color:var(--p)}
 .btn:hover{transform:translateY(-2px)}
@@ -373,7 +373,7 @@ footer a{text-decoration:none}
         <label for="fe">Email<input id="fe" name="email" type="email" required autocomplete="email" placeholder="you@example.com"></label>
       </div>
       <div class="two">
-        <label for="fp">Phone or WhatsApp <span class="opt">optional</span><input id="fp" name="phone" type="tel" autocomplete="tel" placeholder="+91"></label>
+        <label for="fp"><span>Phone or WhatsApp <span class="opt">(optional)</span></span><input id="fp" name="phone" type="tel" autocomplete="tel" placeholder="+91"></label>
         <label for="fb">Type of business<select id="fb" name="business"><option>Masjid or committee</option><option>Boutique or tailoring</option><option>Study library</option><option>School or preschool</option><option>Chit fund</option><option>Something else</option></select></label>
       </div>
       <label for="fm">What should the app handle?<textarea id="fm" name="message" required placeholder="e.g. We take 40 orders a week and lose track of measurements"></textarea></label>
