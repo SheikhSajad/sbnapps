@@ -1,0 +1,29 @@
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0e0c18);--ink:light-dark(#14112b,#efedf9);--mute:light-dark(#575371,#aaa6c4);--g:light-dark(#0f7a55,#3fbf8c);--tint:light-dark(#eef8f3,#122019);--line:light-dark(#e3ece7,#26332c);--acc:#c9a227}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 "Plus Jakarta Sans",system-ui,sans-serif}
+a{color:var(--g)}
+.top{border-bottom:1px solid var(--line);padding-block:14px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.top .in{max-width:760px;margin-inline:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.top a{text-decoration:none;color:var(--ink);font-weight:800;letter-spacing:-.02em}
+.top nav{display:flex;gap:16px;font-size:15px}
+.top nav a{font-weight:600;color:var(--mute)}
+main{max-width:760px;margin-inline:auto;padding-block:40px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.kick{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--g)}
+h1{font-size:clamp(32px,5vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:6px 0 12px;text-wrap:balance}
+h2{font-size:22px;font-weight:800;letter-spacing:-.02em;margin:36px 0 8px;text-wrap:balance}
+p,li{max-width:66ch}
+ul,ol{padding-left:22px}
+li{margin:4px 0}
+.mute{color:var(--mute)}
+.ur{font-family:"Noto Nastaliq Urdu",serif;line-height:2.2;direction:rtl}
+.box{background:var(--tint);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border-radius:12px;background:var(--g);color:#fff;font-weight:700;text-decoration:none;margin:6px 8px 6px 0}
+.btn.ghost{background:transparent;color:var(--g);border:2px solid var(--g)}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:20px 0}
+.feat div{border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.feat b{display:block}
+.feat span{color:var(--mute);font-size:15px}
+footer{border-top:1px solid var(--line);color:var(--mute);font-size:14px;padding-block:20px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+footer .in{max-width:760px;margin-inline:auto}
