@@ -377,7 +377,7 @@ footer a{text-decoration:none}
         <label for="fb">Type of business<select id="fb" name="business"><option>Masjid or committee</option><option>Boutique or tailoring</option><option>Study library</option><option>School or preschool</option><option>Chit fund</option><option>Something else</option></select></label>
       </div>
       <label for="fm">What should the app handle?<textarea id="fm" name="message" required placeholder="e.g. We take 40 orders a week and lose track of measurements"></textarea></label>
-      <input type="text" name="_honey" id="fh" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
+      <input type="checkbox" name="botcheck" id="fh" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
       <button class="btn solid" type="submit" id="send">Send message</button>
       <p class="fmsg" id="fmsg" role="status" aria-live="polite"></p>
     </form>
@@ -525,21 +525,22 @@ route.addEventListener('click',e=>{const b=e.target.closest('.st');if(b){clearIn
 showStep(0);
 if(!RM)stT=setInterval(()=>showStep((si+1)%ST.length),5000);
 
-/* contact: posts to FormSubmit, which emails hello@sbnapps.com */
+/* contact: posts to Web3Forms, which emails hello@sbnapps.com */
 const form=$('form'),fmsg=$('fmsg'),send=$('send');
 const say=(t,c)=>{fmsg.textContent=t;fmsg.className='fmsg '+(c||'')};
 form.addEventListener('submit',async e=>{e.preventDefault();
- if($('fh').value)return;
+ if($('fh').checked)return;
  const name=$('fn').value.trim(),email=$('fe').value.trim(),message=$('fm').value.trim();
  if(!name||!message||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){say('Please add your name, a valid email and a short message.','err');return}
  send.disabled=true;send.textContent='Sending…';say('');
- try{const r=await fetch('https://formsubmit.co/ajax/hello@sbnapps.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
-   body:JSON.stringify({name,email,phone:$('fp').value.trim(),business:$('fb').value,message,_subject:'New enquiry from sbnapps.com: '+$('fb').value,_template:'table',_captcha:'false'})});
+ const ac=new AbortController(),tm=setTimeout(()=>ac.abort(),20000);
+ try{const r=await fetch('https://api.web3forms.com/submit',{method:'POST',signal:ac.signal,headers:{'Content-Type':'application/json',Accept:'application/json'},
+   body:JSON.stringify({access_key:'e0d23427-818d-4e0c-8c88-26dc0c12f202',subject:'New enquiry from sbnapps.com: '+$('fb').value,from_name:'SBNApps website',name,email,replyto:email,phone:$('fp').value.trim(),business:$('fb').value,message})});
   const j=await r.json().catch(()=>({}));
-  if(!r.ok||String(j.success)==='false')throw new Error(j.message||'failed');
+  if(!r.ok||!j.success)throw new Error(j.message||'failed');
   form.reset();say('Thank you. Your message is in our inbox and we\'ll reply within a day.','ok')}
  catch(err){say('Sorry, that didn\'t send. Please email hello@sbnapps.com directly.','err')}
- finally{send.disabled=false;send.textContent='Send message'}});
+ finally{clearTimeout(tm);send.disabled=false;send.textContent='Send message'}});
 }
 </script>
 </body>
