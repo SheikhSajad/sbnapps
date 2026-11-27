@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SBNApps Studio</title>
 <meta name="description" content="SBNApps builds Flutter and Supabase apps for masjids, boutiques, schools and local businesses, from Kashmir.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='11' fill='%236c47ff'/><path d='M25.5 12.5H17.5a5 5 0 0 0 0 10h5a5 5 0 0 1 0 10H12' fill='none' stroke='%23fff' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/><circle cx='30' cy='12.5' r='3.4' fill='%23ffb020'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='11' fill='%236c47ff'/><path d='M12 32.5H22.5a5 5 0 0 0 0-10h-5a5 5 0 0 1 0-10h8' fill='none' stroke='%23fff' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/><circle cx='30' cy='12.5' r='3.4' fill='%23ffb020'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@500&display=swap" rel="stylesheet">
@@ -249,22 +249,17 @@ footer a{text-decoration:none}
 @media(max-width:980px){.sd{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:600px){.sl{grid-template-columns:minmax(0,1fr)}.sg.on{transform:none}}
 /* motion layer */
-#intro{position:fixed;inset:0;z-index:300;background:var(--field);color:#fff;display:grid;place-content:center;justify-items:center;gap:18px;clip-path:inset(0 0 0 0);animation:introOut .75s cubic-bezier(.75,0,.2,1) 1.3s forwards}
-#intro b{font-size:30px;font-weight:800;letter-spacing:-.03em;animation:fadeUp .5s .55s both}
+#intro{position:fixed;inset:0;z-index:300;background:var(--field);color:#fff;display:grid;place-content:center;justify-items:center;gap:18px;clip-path:inset(0 0 0 0);animation:introOut .75s cubic-bezier(.75,0,.2,1) 2.1s forwards}
+#intro b{font-size:34px;font-weight:800;letter-spacing:-.03em;animation:fadeUp .5s .3s both}
 .ilogo{width:96px;height:96px;overflow:visible}
 .itile{transform-origin:20px 20px;animation:tileIn .6s cubic-bezier(.2,1.3,.4,1) both}
-.ipath{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .7s cubic-bezier(.6,0,.2,1) .25s forwards}
-.idot{transform-origin:30px 12.5px;animation:dotIn .45s cubic-bezier(.2,1.6,.4,1) .85s both}
 #intro b span,.wm span{color:var(--acc)}
 .wm span{color:var(--p);font-weight:700}
 .am{display:inline-block;position:relative;width:.74em;height:.8em;vertical-align:-.02em;margin-right:.01em}
 .am svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .am .ad{transform-origin:10px 2.6px}
-.logo:hover .am .ad{animation:dotIn .5s cubic-bezier(.2,1.6,.4,1)}
 .am.ia{color:#fff}
-.am.ia .ap{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .55s cubic-bezier(.6,0,.2,1) .95s forwards}
-.am.ia .ad{animation:dotIn .45s cubic-bezier(.2,1.6,.4,1) 1.35s both}
 @keyframes tileIn{from{transform:scale(.2) rotate(-45deg);opacity:0}}
 @keyframes draw{to{stroke-dashoffset:0}}
 @keyframes dotIn{from{transform:scale(0)}}
@@ -283,8 +278,8 @@ footer a{text-decoration:none}
 .rot span{grid-area:1/1;transform:translateY(115%);transition:transform .75s cubic-bezier(.75,0,.2,1)}
 .rot span.on{transform:none}
 .rot span.out{transform:translateY(-115%)}
-.top>div{animation:fadeUp .9s 1.75s both}
-.stage{perspective:1400px;animation:stageIn 1.1s cubic-bezier(.2,.9,.2,1) 1.55s both}
+.top>div{animation:fadeUp .9s 2.55s both}
+.stage{perspective:1400px;animation:stageIn 1.1s cubic-bezier(.2,.9,.2,1) 2.35s both}
 @keyframes stageIn{from{opacity:0;transform:translateY(60px) scale(.94)}}
 #tilt{position:absolute;inset:0;transition:transform .35s ease-out;transform-style:preserve-3d}
 .wd{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
@@ -300,14 +295,14 @@ footer a{text-decoration:none}
 </style>
 </head>
 <body>
-<div id="intro" aria-hidden="true"><svg class="ilogo" viewBox="0 0 40 40"><rect class="itile" width="40" height="40" rx="11" fill="#fff" fill-opacity=".12"/><path class="ipath" d="M25.5 12.5H17.5a5 5 0 0 0 0 10h5a5 5 0 0 1 0 10H12" pathLength="1" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle class="idot" cx="30" cy="12.5" r="3.4" fill="#ffb020"/></svg><b>SBN<span><span class="am ia"><span class="vh">A</span><svg viewBox="0 0 20 22" aria-hidden="true"><path class="ap" d="M2.6 20.4 10 2.4l7.4 18M5.6 13.6h8.8" pathLength="1" fill="none" stroke="currentColor" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/><circle class="ad" cx="10" cy="2.6" r="2.4" fill="#ffb020"/></svg></span>pps</span></b></div>
+<div id="intro" aria-hidden="true"><svg class="ilogo" viewBox="0 0 40 40"><rect class="itile" width="40" height="40" rx="11" fill="#fff" fill-opacity=".12"/><path class="sp" d="M12 32.5H22.5a5 5 0 0 0 0-10h-5a5 5 0 0 1 0-10h8" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle class="sd" cx="30" cy="12.5" r="3.4" fill="#ffb020"/></svg><b>SBN<span><span class="am ia"><span class="vh">A</span><svg viewBox="0 0 20 22" aria-hidden="true"><path class="a1" d="M17.4 20.4 10 2.4 2.6 20.4" fill="none" stroke="currentColor" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/><path class="a2" d="M5.6 13.6h8.8" fill="none" stroke="currentColor" stroke-width="3.7" stroke-linecap="round"/><circle class="ad" cx="10" cy="2.4" r="2.4" fill="#ffb020"/></svg></span>pps</span></b></div>
 <div id="prog" aria-hidden="true"></div>
 <div id="cur" aria-hidden="true"></div>
 <header>
   <div class="nav">
     <a class="logo" href="#top" aria-label="SBNApps home">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#6c47ff"/><path d="M25.5 12.5H17.5a5 5 0 0 0 0 10h5a5 5 0 0 1 0 10H12" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="30" cy="12.5" r="3.4" fill="#ffb020"/></svg>
-      <span class="wm">SBN<span><span class="am"><span class="vh">A</span><svg viewBox="0 0 20 22" aria-hidden="true"><path class="ap" d="M2.6 20.4 10 2.4l7.4 18M5.6 13.6h8.8" pathLength="1" fill="none" stroke="currentColor" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/><circle class="ad" cx="10" cy="2.6" r="2.4" fill="#ffb020"/></svg></span>pps</span></span>
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#6c47ff"/><path class="sp" d="M12 32.5H22.5a5 5 0 0 0 0-10h-5a5 5 0 0 1 0-10h8" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle class="sd" cx="30" cy="12.5" r="3.4" fill="#ffb020"/></svg>
+      <span class="wm">SBN<span><span class="am"><span class="vh">A</span><svg viewBox="0 0 20 22" aria-hidden="true"><path class="a1" d="M17.4 20.4 10 2.4 2.6 20.4" fill="none" stroke="currentColor" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/><path class="a2" d="M5.6 13.6h8.8" fill="none" stroke="currentColor" stroke-width="3.7" stroke-linecap="round"/><circle class="ad" cx="10" cy="2.4" r="2.4" fill="#ffb020"/></svg></span>pps</span></span>
     </a>
     <nav class="links" aria-label="Main">
       <a href="#products">Products</a><a href="#stitch">Stitch demo</a><a href="#services">Services</a><a href="#stack">How it works</a><a href="#process">Process</a><a href="#about">About</a><a href="#faq">FAQ</a>
@@ -321,7 +316,7 @@ footer a{text-decoration:none}
   <canvas id="fx" aria-hidden="true"></canvas>
   <div class="wrap">
     <div class="top">
-      <h1 class="kin" aria-label="Apps that run the masjid, the boutique, the school, the library and the chit fund."><span class="w" style="--d:1.30s" aria-hidden="true">Apps</span> <span class="w" style="--d:1.38s" aria-hidden="true">that</span> <span class="w" style="--d:1.46s" aria-hidden="true">run</span> <span class="w" style="--d:1.54s" aria-hidden="true">the</span><br><span class="w" style="--d:1.62s" aria-hidden="true"><span class="rot" id="rot"><span class="on">masjid.</span><span>boutique.</span><span>school.</span><span>library.</span><span>chit fund.</span></span></span></h1>
+      <h1 class="kin" aria-label="Apps that run the masjid, the boutique, the school, the library and the chit fund."><span class="w" style="--d:2.10s" aria-hidden="true">Apps</span> <span class="w" style="--d:2.18s" aria-hidden="true">that</span> <span class="w" style="--d:2.26s" aria-hidden="true">run</span> <span class="w" style="--d:2.34s" aria-hidden="true">the</span><br><span class="w" style="--d:2.42s" aria-hidden="true"><span class="rot" id="rot"><span class="on">masjid.</span><span>boutique.</span><span>school.</span><span>library.</span><span>chit fund.</span></span></span></h1>
       <div>
         <p class="lede">SBNApps is a software studio in Kashmir. We build Flutter and Supabase products for the places people actually work in, with WhatsApp automation built in, and we test them in businesses we run ourselves.</p>
         <div class="cta"><a class="btn solid" href="#products">See the products</a><a class="btn ghost" href="#contact">Talk to us</a></div>
@@ -500,7 +495,7 @@ footer a{text-decoration:none}
 
 <footer>
   <div class="wrap">
-    <span><b style="color:var(--ink)">SBN<span style="color:var(--p)"><span class="am"><span class="vh">A</span><svg viewBox="0 0 20 22" aria-hidden="true"><path class="ap" d="M2.6 20.4 10 2.4l7.4 18M5.6 13.6h8.8" pathLength="1" fill="none" stroke="currentColor" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/><circle class="ad" cx="10" cy="2.6" r="2.4" fill="#ffb020"/></svg></span>pps</span></b> · Software studio, Kashmir · © 2026</span>
+    <span><b style="color:var(--ink)">SBN<span style="color:var(--p)"><span class="am"><span class="vh">A</span><svg viewBox="0 0 20 22" aria-hidden="true"><path class="a1" d="M17.4 20.4 10 2.4 2.6 20.4" fill="none" stroke="currentColor" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/><path class="a2" d="M5.6 13.6h8.8" fill="none" stroke="currentColor" stroke-width="3.7" stroke-linecap="round"/><circle class="ad" cx="10" cy="2.4" r="2.4" fill="#ffb020"/></svg></span>pps</span></b> · Software studio, Kashmir · © 2026</span>
     <nav aria-label="Footer"><a href="#products">Products</a><a href="#services">Services</a><a href="#process">Process</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
   </div>
 </footer>
@@ -648,6 +643,28 @@ route.addEventListener('click',e=>{const b=e.target.closest('.st');if(b){clearIn
 showStep(0);
 if(!RM)stT=setInterval(()=>showStep((si+1)%ST.length),5000);
 
+
+/* the saffron dot is the pen: it writes S and A, then rests at the top */
+const writeMark=(steps,dot,dur,delay=0)=>{
+ const segs=steps.map(st=>{if(st.el){const L=st.el.getTotalLength();st.el.style.strokeDasharray=L;st.el.style.strokeDashoffset=L;return{el:st.el,L,w:L}}return{to:st.to,w:st.w||6}});
+ const W=segs.reduce((a,g)=>a+g.w,0);let p0=segs[0].el.getPointAtLength(0);dot.setAttribute('cx',p0.x);dot.setAttribute('cy',p0.y);
+ let from=null;const t0=performance.now()+delay;const ease=t=>t<.5?2*t*t:1-(-2*t+2)**2/2;
+ return new Promise(res=>{const tick=now=>{const k=Math.max(0,Math.min(1,(now-t0)/dur)),e=ease(k)*W;let acc=0,last={x:p0.x,y:p0.y};
+  for(const g of segs){const lp=Math.max(0,Math.min(1,(e-acc)/g.w));
+   if(g.el){g.el.style.strokeDashoffset=g.L*(1-lp);const pt=g.el.getPointAtLength(g.L*lp);if(e>=acc){dot.setAttribute('cx',pt.x);dot.setAttribute('cy',pt.y)}last=g.el.getPointAtLength(g.L)}
+   else{if(e>=acc){const x=last.x+(g.to[0]-last.x)*lp,y=last.y+(g.to[1]-last.y)*lp-Math.sin(Math.PI*lp)*2.5;dot.setAttribute('cx',x);dot.setAttribute('cy',y)}last={x:g.to[0],y:g.to[1]}}
+   acc+=g.w}
+  if(k<1)requestAnimationFrame(tick);else res()};requestAnimationFrame(tick)})};
+const markS=svg=>({run:(dur,del)=>writeMark([{el:svg.querySelector('.sp')},{to:[30,12.5],w:5}],svg.querySelector('.sd'),dur,del)});
+const markA=svg=>({run:(dur,del)=>writeMark([{el:svg.querySelector('.a1')},{to:[5.6,13.6],w:6},{el:svg.querySelector('.a2')},{to:[10,2.4],w:10}],svg.querySelector('.ad'),dur,del)});
+if(!RM){
+ const iS=document.querySelector('#intro .ilogo'),iA=document.querySelector('#intro .am svg');
+ if(iS&&iA){markS(iS).run(800,250);markA(iA).run(700,1100)}
+ const hS=document.querySelector('.logo>svg'),hA=document.querySelector('.logo .am svg'),hs=markS(hS),ha=markA(hA);
+ let busy=false;const both=async(d)=>{if(busy)return;busy=true;hs.run(650,d);await ha.run(600,d+700);busy=false};
+ both(2500);document.querySelector('.logo').addEventListener('pointerenter',()=>both(0));
+ const fA=document.querySelector('footer .am svg');if(fA){const fa=markA(fA);const ioF=new IntersectionObserver(([e])=>{if(e.isIntersecting){fa.run(700,150);ioF.disconnect()}});ioF.observe(fA)}
+}
 
 /* stitch demo: Kehzabr + Silai */
 const gsv=$('garsvg'),rail=$('rail'),sls=$('sliders');
