@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SBNApps Studio</title>
 <meta name="description" content="SBNApps builds Flutter and Supabase apps for masjids, boutiques, schools and local businesses, from Kashmir.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='11' fill='%236c47ff'/><path d='M25.5 12.5H17.5a5 5 0 0 0 0 10h5a5 5 0 0 1 0 10H12' fill='none' stroke='%23fff' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/><circle cx='30' cy='12.5' r='3.4' fill='%23ffb020'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@500&display=swap" rel="stylesheet">
@@ -41,7 +42,8 @@ p{margin:0}
 header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;gap:20px;padding:12px max(5vw,16px);max-width:1340px;margin-inline:auto}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:20px;letter-spacing:-.03em}
-.logo svg{width:36px;height:36px;flex:none}
+.logo svg{width:38px;height:38px;flex:none;transition:transform .4s cubic-bezier(.2,1.4,.4,1)}
+.logo:hover svg{transform:rotate(-8deg) scale(1.06)}
 .links{display:flex;gap:4px;margin-left:auto}
 .links a{text-decoration:none;font-weight:600;font-size:15px;color:var(--mute);padding:10px 12px;border-radius:10px;white-space:nowrap}
 .links a:hover{color:var(--ink);background:var(--tint)}
@@ -217,15 +219,47 @@ footer a{text-decoration:none}
 @media(max-width:600px){.stage{height:700px;border-radius:24px}.stage .phone{top:84px;scale:.86;transform-origin:50% 0}.toast{width:200px;padding:10px 12px}#t2{bottom:150px}.svc{grid-template-columns:minmax(0,1fr)}.feats{grid-template-columns:minmax(0,1fr)}.route{grid-template-columns:repeat(5,minmax(0,1fr))}.st{font-size:13px}.st span{width:46px;height:46px;border-radius:14px}.route::before,.route .fill{top:21px}.stepbox{grid-template-columns:minmax(0,1fr)}.prod .phone{transform:scale(.92)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
+
+/* stitch demo */
+#stitch{background:light-dark(#fff3f7,#1b0f18)}
+.sd{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:start}
+.gar{background:var(--card);border:1.5px solid var(--line);border-radius:28px;padding:14px 14px 18px}
+.garfig svg{width:100%;height:auto;display:block}
+.garfig text{font-family:"Plus Jakarta Sans",sans-serif;font-weight:700;fill:var(--ink);paint-order:stroke;stroke:var(--card);stroke-width:5px}
+.sl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 22px;padding:6px 8px 0}
+.sl label{display:grid;gap:8px;font-weight:700;font-size:15px}
+.sl label>span{display:flex;justify-content:space-between;gap:8px}
+.sl output{color:#c2185b;font-variant-numeric:tabular-nums;white-space:nowrap}
+.sl input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:8px;padding:0;border:0;border-radius:4px;background:linear-gradient(to right,#c2185b var(--v,50%),var(--line) 0);cursor:pointer}
+.sl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid #c2185b;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.sl input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid #c2185b}
+.rail{display:grid;gap:10px}
+.sg{display:grid;grid-template-columns:46px minmax(0,1fr);gap:14px;align-items:start;text-align:left;width:100%;background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:12px 16px;cursor:pointer;font:inherit;color:inherit;transition:border-color .3s,box-shadow .3s}
+.sg i{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-style:normal;font-weight:800;color:var(--c);background:color-mix(in srgb,var(--c) 14%,var(--card));transition:all .3s}
+.sg small{display:block;font-size:13px;font-weight:600;color:var(--mute)}
+.sg b{display:block;font-size:17px;letter-spacing:-.01em}
+.sg .more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s ease}
+.sg .more>div{overflow:hidden}
+.sg .more p{margin:8px 0 0;font-size:15px;color:var(--mute)}
+.sg .more code{display:block;margin-top:10px;font:600 14px/1.4 "Plus Jakarta Sans",sans-serif;background:color-mix(in srgb,var(--c) 10%,var(--card));color:var(--ink);border-radius:12px;padding:10px 12px}
+.sg.on{border-color:var(--c);box-shadow:0 10px 0 -6px color-mix(in srgb,var(--c) 30%,transparent);transform:translateX(6px)}
+.sg.on .more{grid-template-rows:1fr}
+.sg.done i,.sg.on i{background:var(--c);color:#fff}
+.sctl{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+@media(max-width:980px){.sd{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.sl{grid-template-columns:minmax(0,1fr)}.sg.on{transform:none}}
 /* motion layer */
 #intro{position:fixed;inset:0;z-index:300;background:var(--field);color:#fff;display:grid;place-content:center;justify-items:center;gap:18px;clip-path:inset(0 0 0 0);animation:introOut .75s cubic-bezier(.75,0,.2,1) 1.3s forwards}
 #intro b{font-size:30px;font-weight:800;letter-spacing:-.03em;animation:fadeUp .5s .55s both}
-.ilogo{display:grid;grid-template-columns:repeat(2,38px);gap:8px}
-.ilogo i{width:38px;height:38px;border-radius:10px;background:#fff;animation:fly .75s cubic-bezier(.2,1.3,.4,1) both}
-.ilogo i:nth-child(1){--x:-140px;--y:-120px}
-.ilogo i:nth-child(2){--x:140px;--y:-120px;background:var(--acc);animation-delay:.08s}
-.ilogo i:nth-child(3){--x:-140px;--y:120px;background:rgba(255,255,255,.55);animation-delay:.16s}
-.ilogo i:nth-child(4){--x:140px;--y:120px;animation-delay:.24s}
+.ilogo{width:96px;height:96px;overflow:visible}
+.itile{transform-origin:20px 20px;animation:tileIn .6s cubic-bezier(.2,1.3,.4,1) both}
+.ipath{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .7s cubic-bezier(.6,0,.2,1) .25s forwards}
+.idot{transform-origin:30px 12.5px;animation:dotIn .45s cubic-bezier(.2,1.6,.4,1) .85s both}
+#intro b span,.wm span{color:var(--acc)}
+.wm span{color:var(--p);font-weight:700}
+@keyframes tileIn{from{transform:scale(.2) rotate(-45deg);opacity:0}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes dotIn{from{transform:scale(0)}}
 @keyframes fly{from{transform:translate(var(--x),var(--y)) rotate(200deg) scale(.2);opacity:0}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}}
 @keyframes introOut{to{clip-path:inset(0 0 100% 0);visibility:hidden}}
@@ -258,17 +292,17 @@ footer a{text-decoration:none}
 </style>
 </head>
 <body>
-<div id="intro" aria-hidden="true"><div class="ilogo"><i></i><i></i><i></i><i></i></div><b>SBNApps</b></div>
+<div id="intro" aria-hidden="true"><svg class="ilogo" viewBox="0 0 40 40"><rect class="itile" width="40" height="40" rx="11" fill="#fff" fill-opacity=".12"/><path class="ipath" d="M25.5 12.5H17.5a5 5 0 0 0 0 10h5a5 5 0 0 1 0 10H12" pathLength="1" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle class="idot" cx="30" cy="12.5" r="3.4" fill="#ffb020"/></svg><b>SBN<span>Apps</span></b></div>
 <div id="prog" aria-hidden="true"></div>
 <div id="cur" aria-hidden="true"></div>
 <header>
   <div class="nav">
     <a class="logo" href="#top" aria-label="SBNApps home">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="12" fill="#6c47ff"/><rect x="9" y="9" width="10" height="10" rx="3" fill="#fff"/><rect x="21" y="9" width="10" height="10" rx="3" fill="#ffb020"/><rect x="9" y="21" width="10" height="10" rx="3" fill="#fff" opacity=".55"/><rect x="21" y="21" width="10" height="10" rx="3" fill="#fff"/></svg>
-      SBNApps
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#6c47ff"/><path d="M25.5 12.5H17.5a5 5 0 0 0 0 10h5a5 5 0 0 1 0 10H12" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="30" cy="12.5" r="3.4" fill="#ffb020"/></svg>
+      <span class="wm">SBN<span>Apps</span></span>
     </a>
     <nav class="links" aria-label="Main">
-      <a href="#products">Products</a><a href="#services">Services</a><a href="#stack">How it works</a><a href="#process">Process</a><a href="#about">About</a><a href="#faq">FAQ</a>
+      <a href="#products">Products</a><a href="#stitch">Stitch demo</a><a href="#services">Services</a><a href="#stack">How it works</a><a href="#process">Process</a><a href="#about">About</a><a href="#faq">FAQ</a>
     </nav>
     <a class="btn solid" href="#contact">Start a project</a>
   </div>
@@ -302,7 +336,7 @@ footer a{text-decoration:none}
 
     <div class="stats">
       <div class="stat"><strong data-n="14">14</strong><span>years of engineering behind the studio</span></div>
-      <div class="stat"><strong data-n="5">5</strong><span>products in production, live trial or build</span></div>
+      <div class="stat"><strong data-n="6">6</strong><span>products in production, live trial or build</span></div>
       <div class="stat"><strong>1 stack</strong><span>Flutter, Supabase, n8n, WhatsApp, end to end</span></div>
       <div class="stat"><strong>2 scripts</strong><span>English and Urdu Nastaliq in the same app</span></div>
     </div>
@@ -314,7 +348,7 @@ footer a{text-decoration:none}
 <section class="band" id="products">
   <div class="wrap">
     <div class="head">
-      <h2>Five products, each born from a real register.</h2>
+      <h2>Six products, each born from a real register.</h2>
       <p class="mute">Every app started with a notebook, a WhatsApp group or a stack of paper slips that wasn't working. Pick one to see what it does, who it's for and where it stands today.</p>
     </div>
     <div class="tabs scroll" id="tabs" role="tablist" aria-label="Products"></div>
@@ -323,6 +357,26 @@ footer a{text-decoration:none}
       <div class="pd" id="pd"></div>
     </div>
     <p class="note">Phone screens show sample data.</p>
+  </div>
+</section>
+
+<section class="band" id="stitch">
+  <div class="wrap">
+    <div class="head">
+      <h2>Follow one suit from booking to doorstep.</h2>
+      <p class="mute">Kehzabr is what the customer sees. Silai is what the boutique runs on. Move the sliders to change the measurements, then step through the order and watch the suit get cut and stitched.</p>
+    </div>
+    <div class="sd">
+      <div class="gar">
+        <div class="garfig"><svg id="garsvg" viewBox="0 0 420 480" role="img" aria-label="Frock drawn from the measurements, stitched as the order progresses"></svg></div>
+        <div class="sl" id="sliders"></div>
+      </div>
+      <div>
+        <div class="rail" id="rail" role="tablist" aria-label="Order stages"></div>
+        <div class="sctl"><button class="btn ghost" type="button" id="sgPrev" aria-label="Previous stage">Back</button><button class="btn solid" type="button" id="sgPlay">Play the order</button><button class="btn ghost" type="button" id="sgNext" aria-label="Next stage">Next</button></div>
+      </div>
+    </div>
+    <p class="note">A sample order. Silai counts orders by the piece, the way boutiques work: frock and shalwar together are one piece.</p>
   </div>
 </section>
 
@@ -461,7 +515,7 @@ const P=[
   status:'Going live at its first boutique',live:1,for:'For boutiques and tailoring shops',prob:'Masters misread handwritten measurements. Every misread means an alteration, and sometimes a customer who doesn\'t come back.',
   feats:['Front desk, master and karigar roles','Measurements as diagrams, numbers and audio','Orders counted by the piece, the way shops work','Reuse measurements for a second suit','Many boutiques on one platform','Customer app on the way'],
   next:'Live first at The Stitch Studio, then rolling out to other boutiques.',
-  tags:['Flutter','Supabase','Multi-tenant','Audio notes']},
+  tags:['Flutter','Supabase','Multi-tenant','Audio notes','Syncs with Kehzabr']},
  {id:'seatwise',app:'SeatWise',c:'#2563eb',sub:'Study cabins · Owner view',k:'Unsold rent this month',v:'₹6,300',kd:'7 shift-seats empty',
   rows:[['B4','Seat B4','Morning · Aamir','Paid'],['B4','Seat B4','Evening shift','Empty'],['W','Fee reminders','Due in 3 days · 12 sent','Auto'],['C7','Seat C7','Full day · Iqra','Due']],tabs:['Seats','Members','Dues','Reports'],
   t:[['W','12 reminders sent','Fees due in 3 days'],['B4','Seat B4 evening','Empty shift, ₹900 unsold']],
@@ -476,6 +530,13 @@ const P=[
   feats:['Lucky-draw model','Animated draw reveal everyone can watch','UPI payment tracking','PDF reports by member and month','Material 3 design'],
   next:'Moving from design into build.',
   tags:['Flutter','Material 3','PDF export','UPI tracking']},
+{id:'kehzabr',app:'Kehzabr',c:'#7c2d92',sub:'kehzabr.com · Made to measure',k:'Next fitting',v:'Sat 11:00',kd:'Our tailor comes to your home',
+  rows:[['F','Doorstep fitting','Saturday · at home','Booked'],['M','My measurements','Saved · 27 points','View'],['O','Order K-2041','Frock + shalwar · Stitching','70%'],['N','New designs','Winter collection','Shop']],tabs:['Home','Shop','Orders','Me'],
+  t:[['F','Fitting booked','Saturday 11:00, at home'],['O','Order K-2041','Out for delivery today']],
+  status:'In build',live:1,for:'For customers who want made-to-measure clothes without the trips',prob:'Getting a suit stitched means two trips to the boutique, measurements on paper and no idea when it will be ready.',
+  feats:['Book a doorstep measurement','Measurements saved for every future order','Track each piece from cutting to delivery','Shop Kehzabr\'s own designs','Orders flow straight into Silai','Backed by a 24-person karigar workshop'],
+  next:'Booking and services are being finished, then other boutiques join so customers can choose who stitches their order.',
+  tags:['Flutter','Riverpod','GoRouter','Dio + Hive cache','kehzabr.com']},
  {id:'ilmpath',app:'ILMPath',c:'#4f46e5',sub:'Student dashboard',k:'Classes today',v:'6',kd:'Next: Maths at 10:40',
   rows:[['T','Timetable','6 periods today','View'],['N','Notices','Parent meeting Saturday','New'],['P','Profile','Grade 2 · Section A','Open'],['A','Attendance','Arrives in Phase 2','Soon']],tabs:['Home','Classes','Notices','Me'],
   t:[['N','New notice','Parent meeting on Saturday'],['T','Next class','Maths at 10:40']],
@@ -580,6 +641,65 @@ showStep(0);
 if(!RM)stT=setInterval(()=>showStep((si+1)%ST.length),5000);
 
 
+/* stitch demo: Kehzabr + Silai */
+const gsv=$('garsvg'),rail=$('rail'),sls=$('sliders');
+const M={chest:36,waist:32,len:44,sl:18};
+const ML=[['chest','Chest',30,46],['waist','Waist',26,42],['len','Length',36,52],['sl','Sleeve',6,24]];
+sls.innerHTML=ML.map(([k,l,a,b])=>`<label for="m-${k}"><span>${l}<output id="o-${k}">${M[k]}″</output></span><input type="range" id="m-${k}" min="${a}" max="${b}" step="1" value="${M[k]}"></label>`).join('');
+const SG=[
+ {k:'K',c:'#7c2d92',who:'Customer · Kehzabr app',t:'Books a doorstep fitting',d:'Picks a design on kehzabr.com and books a time for the tailor to come home.',x:()=>'Booking K-2041 · Saturday 11:00 · at home'},
+ {k:'F',c:'#c2185b',who:'Front desk · Silai',t:'Measured once, saved forever',d:'All 27 measurements go into Silai and stay on the customer\'s profile for the next suit.',x:()=>`Chest ${M.chest}″ · Waist ${M.waist}″ · Length ${M.len}″ · Sleeve ${M.sl}″`},
+ {k:'M',c:'#c2185b',who:'Master · Silai',t:'Cuts from a diagram',d:'The master sees this drawing with the numbers on it and a short audio note, so nothing gets misread.',x:()=>'Diagram attached · 0:14 audio note · 1 piece'},
+ {k:'T',c:'#c2185b',who:'Karigar · Silai',t:'Stitches and adds thread work',d:'The piece moves to a karigar, who marks progress as each part is done.',x:()=>'Stitching 80% · Thread work on neckline and hem'},
+ {k:'W',c:'#0f7a55',who:'Customer · WhatsApp',t:'Ready, and the customer knows',d:'An automatic WhatsApp tells the customer it is ready for trial or out for delivery.',x:()=>'"Your suit is ready for trial. Reply 1 for home delivery."'}];
+rail.innerHTML=SG.map((g,i)=>`<button class="sg" type="button" role="tab" style="--c:${g.c}" data-i="${i}"><i>${g.k}</i><span><small>${g.who}</small><b>${g.t}</b><span class="more"><div><p>${g.d}</p><code id="sgx${i}"></code></div></span></span></button>`).join('');
+const TGT=[0,0,.12,.8,1];
+let sgi=0,sprog=0,stitchPath=null,needle=null,sLen=1,sgT=null;
+const drawGar=()=>{const p=3.8,v=7.2,cx=210,nY=50;
+ const hc=M.chest*p/2,hw=M.waist*p/2,sh=hc*.86,shY=nY+8,aY=nY+8.5*v,wY=nY+15.5*v,hY=Math.min(nY+M.len*v,440),hh=Math.max(hw*1.85,hc*1.3);
+ const body=`M${cx-26} ${nY}L${cx-sh} ${shY}L${cx-hc} ${aY}C${cx-hc} ${aY+30} ${cx-hw} ${wY-30} ${cx-hw} ${wY}C${cx-hw} ${wY+40} ${cx-hh} ${hY-60} ${cx-hh} ${hY}Q${cx} ${hY+22} ${cx+hh} ${hY}C${cx+hh} ${hY-60} ${cx+hw} ${wY+40} ${cx+hw} ${wY}C${cx+hw} ${wY-30} ${cx+hc} ${aY+30} ${cx+hc} ${aY}L${cx+sh} ${shY}L${cx+26} ${nY}Q${cx} ${nY+46} ${cx-26} ${nY}Z`;
+ const dx=.47,dy=.88,L=Math.max(M.sl*v*.95,30),cw=30;
+ const sleeve=s=>{const Sx=cx+s*sh,Sy=shY,Ax=cx+s*hc,Ay=aY,ox=Sx+s*dx*L,oy=Sy+dy*L,ix=ox-s*.88*cw,iy=oy+.47*cw;return {d:`M${Sx} ${Sy}L${ox} ${oy}L${ix} ${iy}L${Ax} ${Ay}Z`,ox,oy,ix,iy}};
+ const R=sleeve(1),Lf=sleeve(-1);
+ const st=sgi,dimOp=st>=1?1:.3;
+ let fl='';if(st>=3){for(let t=.12;t<=.9;t+=.13){const qx=(1-t)**2*(cx-26)+2*(1-t)*t*cx+t*t*(cx+26),qy=(1-t)**2*nY+2*(1-t)*t*(nY+46)+t*t*nY;fl+=`<use href="#fl" x="${qx}" y="${qy+10}"/>`}
+  for(let x=cx-hh+22;x<=cx+hh-22;x+=24){const tt=(x-(cx-hh))/(2*hh),yy=hY+44*tt*(1-tt)-16;fl+=`<use href="#fl" x="${x}" y="${yy}"/>`}}
+ const lx=Math.min(cx+hh+24,404);
+ gsv.innerHTML=`<defs><pattern id="fab" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#fbe1ec"/><circle cx="5" cy="5" r="1.2" fill="#f3b6cd"/></pattern>
+  <symbol id="fl" overflow="visible"><g fill="#ffb020"><circle cx="0" cy="-4" r="2.6"/><circle cx="3.8" cy="-1.2" r="2.6"/><circle cx="2.4" cy="3.2" r="2.6"/><circle cx="-2.4" cy="3.2" r="2.6"/><circle cx="-3.8" cy="-1.2" r="2.6"/></g><circle r="1.8" fill="#c2185b"/></symbol>
+  <mask id="smask"><path id="sreveal" d="${body}" pathLength="1" fill="none" stroke="#fff" stroke-width="14" stroke-dasharray="1 1" stroke-dashoffset="1"/></mask></defs>
+  <ellipse cx="${cx}" cy="${hY+34}" rx="${hh*.9}" ry="10" fill="rgba(0,0,0,.08)"/>
+  ${st>=2?`<path d="${body}" fill="none" stroke="#7aa7ff" stroke-width="12" stroke-opacity=".35" stroke-dasharray="2 9" stroke-linecap="round"/><path d="${R.d}" fill="none" stroke="#7aa7ff" stroke-width="12" stroke-opacity=".35" stroke-dasharray="2 9" stroke-linecap="round"/><path d="${Lf.d}" fill="none" stroke="#7aa7ff" stroke-width="12" stroke-opacity=".35" stroke-dasharray="2 9" stroke-linecap="round"/><text x="${cx-hh-4}" y="${hY+30}" font-size="22" text-anchor="end" style="stroke-width:0">✂</text>`:''}
+  <path d="${R.d}" fill="${st>=1?'url(#fab)':'#f6eef2'}" stroke="#c2185b" stroke-width="2" stroke-opacity="${st>=1?1:.4}"/>
+  <path d="${Lf.d}" fill="${st>=1?'url(#fab)':'#f6eef2'}" stroke="#c2185b" stroke-width="2" stroke-opacity="${st>=1?1:.4}"/>
+  <path d="${body}" fill="${st>=1?'url(#fab)':'#f6eef2'}" stroke="#c2185b" stroke-width="2.5" stroke-opacity="${st>=1?1:.4}" stroke-dasharray="${st>=1?'none':'6 6'}"/>
+  <path id="stitchp" d="${body}" pathLength="1000" fill="none" stroke="#7c2d92" stroke-width="2.4" stroke-dasharray="7 5" transform="translate(${cx} ${(nY+hY)/2}) scale(.93) translate(${-cx} ${-(nY+hY)/2})" mask="url(#smask)"/>
+  ${fl}
+  <g opacity="${dimOp}" style="transition:opacity .4s">
+   <line x1="18" y1="${aY}" x2="${cx-hc-6}" y2="${aY}" stroke="#c2185b" stroke-width="1.5" stroke-dasharray="4 4"/><text x="18" y="${aY-10}" font-size="17">Chest ${M.chest}″</text>
+   <line x1="18" y1="${wY}" x2="${cx-hw-6}" y2="${wY}" stroke="#c2185b" stroke-width="1.5" stroke-dasharray="4 4"/><text x="18" y="${wY-10}" font-size="17">Waist ${M.waist}″</text>
+   <line x1="${lx}" y1="${shY}" x2="${lx}" y2="${hY}" stroke="#c2185b" stroke-width="1.5"/><line x1="${lx-6}" y1="${shY}" x2="${lx+6}" y2="${shY}" stroke="#c2185b" stroke-width="1.5"/><line x1="${lx-6}" y1="${hY}" x2="${lx+6}" y2="${hY}" stroke="#c2185b" stroke-width="1.5"/>
+   <text transform="translate(${lx-8} ${(shY+hY)/2}) rotate(-90)" font-size="17" text-anchor="middle">Length ${M.len}″</text>
+   <line x1="${(R.ox+cx+sh)/2+10}" y1="${(R.oy+shY)/2-4}" x2="372" y2="34" stroke="#c2185b" stroke-width="1.5" stroke-dasharray="4 4"/><circle cx="${(R.ox+cx+sh)/2+10}" cy="${(R.oy+shY)/2-4}" r="3.5" fill="#c2185b"/>
+   <text x="410" y="28" font-size="17" text-anchor="end">Sleeve ${M.sl}″</text>
+  </g>
+  ${st>=4?`<g transform="translate(${cx-sh-100} ${shY-34})"><rect width="92" height="32" rx="16" fill="#0f7a55"/><text x="46" y="21" font-size="15" text-anchor="middle" style="fill:#fff;stroke-width:0">Ready ✓</text></g>`:''}
+  <circle id="needle" r="5" fill="#7c2d92" stroke="#fff" stroke-width="2" opacity="0"/>`;
+ stitchPath=gsv.querySelector('#sreveal');needle=gsv.querySelector('#needle');const sp=gsv.querySelector('#stitchp');sLen=sp.getTotalLength();needle._p=sp;setStitch(sprog)};
+const setStitch=v=>{if(!stitchPath)return;stitchPath.setAttribute('stroke-dashoffset',1-v);
+ if(v>.005&&v<.995){const sp=needle._p,pt=sp.getPointAtLength(v*sLen),m=sp.getCTM&&sp.transform.baseVal.consolidate();let x=pt.x,y=pt.y;if(m){const q=m.matrix;x=q.a*pt.x+q.c*pt.y+q.e;y=q.b*pt.x+q.d*pt.y+q.f}needle.setAttribute('cx',x);needle.setAttribute('cy',y);needle.setAttribute('opacity',1)}else needle.setAttribute('opacity',0)};
+const stitchLoop=()=>{const t=TGT[sgi];if(Math.abs(t-sprog)>.001){sprog+=(t-sprog)*(RM?1:.035)+(t>sprog?.0015:-.0015)*(RM?0:1);if((t-sprog)*(t>sprog?1:-1)<0)sprog=t;setStitch(sprog)}requestAnimationFrame(stitchLoop)};
+const showSg=i=>{sgi=i;[...rail.children].forEach((b,j)=>{b.classList.toggle('on',j===i);b.classList.toggle('done',j<i);b.setAttribute('aria-selected',j===i)});SG.forEach((g,j)=>{$('sgx'+j).textContent=g.x()});drawGar()};
+rail.addEventListener('click',e=>{const b=e.target.closest('.sg');if(b){stopPlay();showSg(+b.dataset.i)}});
+const stopPlay=()=>{clearInterval(sgT);sgT=null;$('sgPlay').textContent='Play the order'};
+const play=()=>{if(sgT){stopPlay();return}if(sgi>=SG.length-1){sprog=0;showSg(0)}$('sgPlay').textContent='Pause';sgT=setInterval(()=>{if(sgi>=SG.length-1){stopPlay();return}showSg(sgi+1)},2600)};
+$('sgPlay').addEventListener('click',play);
+$('sgPrev').addEventListener('click',()=>{stopPlay();showSg(Math.max(0,sgi-1))});
+$('sgNext').addEventListener('click',()=>{stopPlay();showSg(Math.min(SG.length-1,sgi+1))});
+ML.forEach(([k,,a,b])=>{const r=$('m-'+k);const upd=()=>{M[k]=+r.value;$('o-'+k).textContent=M[k]+'″';r.style.setProperty('--v',((M[k]-a)/(b-a)*100)+'%');if(sgi<1){sgi=1;showSg(1)}else{drawGar();SG.forEach((g,j)=>{$('sgx'+j).textContent=g.x()})}};r.addEventListener('input',upd);r.style.setProperty('--v',((M[k]-a)/(b-a)*100)+'%')});
+showSg(0);requestAnimationFrame(stitchLoop);
+if(!RM){let auto=false;const ioS=new IntersectionObserver(([e])=>{if(e.isIntersecting&&!auto){auto=true;setTimeout(()=>{if(!sgT&&sgi===0)play()},700)}},{threshold:.45});ioS.observe($('stitch'))}
+
 /* ===== motion layer ===== */
 /* rotating word in the headline */
 const rot=$('rot');
@@ -636,12 +756,14 @@ if(window.gsap&&window.ScrollTrigger&&!RM){
  const group=(trigger,sel,vars={})=>{const t=document.querySelector(trigger);if(!t)return;gsap.from(t.querySelectorAll(sel),{y:60,opacity:0,duration:.85,ease:'power3.out',stagger:.09,...vars,scrollTrigger:{trigger:t,start:'top 85%'}})};
  document.querySelectorAll('main h2').forEach(h=>{const w=h.textContent.trim().split(/\s+/);h.setAttribute('aria-label',h.textContent.trim());h.innerHTML=w.map(x=>`<span class="wd" aria-hidden="true"><span>${esc(x)}</span></span>`).join(' ');
   gsap.from(h.querySelectorAll('.wd>span'),{yPercent:115,rotate:6,duration:.9,ease:'power4.out',stagger:.06,scrollTrigger:{trigger:h,start:'top 88%'}})});
- up('.head>p,#about .op>div>p,#faq .faq>div>p,#contact .contact>div>p');
+ up('.sctl,.head>p,#about .op>div>p,#faq .faq>div>p,#contact .contact>div>p');
  group('.stats','.stat',{y:40});
  group('#tabs','button',{y:0,x:40,stagger:.07});
  gsap.from('#prod',{y:80,opacity:0,scale:.96,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:'#prod',start:'top 85%'}});
  gsap.to('#prod .phone',{y:-50,ease:'none',scrollTrigger:{trigger:'#prod',start:'top bottom',end:'bottom top',scrub:true}});
  group('#svc','article',{y:80,rotate:3,stagger:.1});
+ gsap.from('.gar',{y:80,opacity:0,rotate:-2,duration:1,ease:'power3.out',scrollTrigger:{trigger:'.gar',start:'top 85%'}});
+ group('#rail','.sg',{x:60,y:0,stagger:.08,clearProps:'transform'});
  gsap.from('#fig',{x:-80,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:'#fig',start:'top 85%'}});
  gsap.from('#info',{x:80,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:'#info',start:'top 85%'}});
  group('#route','.st',{y:40,stagger:.08});
