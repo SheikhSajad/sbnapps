@@ -257,6 +257,14 @@ footer a{text-decoration:none}
 .idot{transform-origin:30px 12.5px;animation:dotIn .45s cubic-bezier(.2,1.6,.4,1) .85s both}
 #intro b span,.wm span{color:var(--acc)}
 .wm span{color:var(--p);font-weight:700}
+.am{display:inline-block;position:relative;width:.74em;height:.8em;vertical-align:-.02em;margin-right:.01em}
+.am svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.am .ad{transform-origin:10px 2.6px}
+.logo:hover .am .ad{animation:dotIn .5s cubic-bezier(.2,1.6,.4,1)}
+.am.ia{color:#fff}
+.am.ia .ap{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .55s cubic-bezier(.6,0,.2,1) .95s forwards}
+.am.ia .ad{animation:dotIn .45s cubic-bezier(.2,1.6,.4,1) 1.35s both}
 @keyframes tileIn{from{transform:scale(.2) rotate(-45deg);opacity:0}}
 @keyframes draw{to{stroke-dashoffset:0}}
 @keyframes dotIn{from{transform:scale(0)}}
@@ -292,14 +300,14 @@ footer a{text-decoration:none}
 </style>
 </head>
 <body>
-<div id="intro" aria-hidden="true"><svg class="ilogo" viewBox="0 0 40 40"><rect class="itile" width="40" height="40" rx="11" fill="#fff" fill-opacity=".12"/><path class="ipath" d="M25.5 12.5H17.5a5 5 0 0 0 0 10h5a5 5 0 0 1 0 10H12" pathLength="1" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle class="idot" cx="30" cy="12.5" r="3.4" fill="#ffb020"/></svg><b>SBN<span>Apps</span></b></div>
+<div id="intro" aria-hidden="true"><svg class="ilogo" viewBox="0 0 40 40"><rect class="itile" width="40" height="40" rx="11" fill="#fff" fill-opacity=".12"/><path class="ipath" d="M25.5 12.5H17.5a5 5 0 0 0 0 10h5a5 5 0 0 1 0 10H12" pathLength="1" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle class="idot" cx="30" cy="12.5" r="3.4" fill="#ffb020"/></svg><b>SBN<span><span class="am ia"><span class="vh">A</span><svg viewBox="0 0 20 22" aria-hidden="true"><path class="ap" d="M2.6 20.4 10 2.4l7.4 18M5.6 13.6h8.8" pathLength="1" fill="none" stroke="currentColor" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/><circle class="ad" cx="10" cy="2.6" r="2.4" fill="#ffb020"/></svg></span>pps</span></b></div>
 <div id="prog" aria-hidden="true"></div>
 <div id="cur" aria-hidden="true"></div>
 <header>
   <div class="nav">
     <a class="logo" href="#top" aria-label="SBNApps home">
       <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#6c47ff"/><path d="M25.5 12.5H17.5a5 5 0 0 0 0 10h5a5 5 0 0 1 0 10H12" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="30" cy="12.5" r="3.4" fill="#ffb020"/></svg>
-      <span class="wm">SBN<span>Apps</span></span>
+      <span class="wm">SBN<span><span class="am"><span class="vh">A</span><svg viewBox="0 0 20 22" aria-hidden="true"><path class="ap" d="M2.6 20.4 10 2.4l7.4 18M5.6 13.6h8.8" pathLength="1" fill="none" stroke="currentColor" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/><circle class="ad" cx="10" cy="2.6" r="2.4" fill="#ffb020"/></svg></span>pps</span></span>
     </a>
     <nav class="links" aria-label="Main">
       <a href="#products">Products</a><a href="#stitch">Stitch demo</a><a href="#services">Services</a><a href="#stack">How it works</a><a href="#process">Process</a><a href="#about">About</a><a href="#faq">FAQ</a>
@@ -492,7 +500,7 @@ footer a{text-decoration:none}
 
 <footer>
   <div class="wrap">
-    <span><b style="color:var(--ink)">SBNApps</b> · Software studio, Kashmir · © 2026</span>
+    <span><b style="color:var(--ink)">SBN<span style="color:var(--p)"><span class="am"><span class="vh">A</span><svg viewBox="0 0 20 22" aria-hidden="true"><path class="ap" d="M2.6 20.4 10 2.4l7.4 18M5.6 13.6h8.8" pathLength="1" fill="none" stroke="currentColor" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"/><circle class="ad" cx="10" cy="2.6" r="2.4" fill="#ffb020"/></svg></span>pps</span></b> · Software studio, Kashmir · © 2026</span>
     <nav aria-label="Footer"><a href="#products">Products</a><a href="#services">Services</a><a href="#process">Process</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
   </div>
 </footer>
